@@ -5,7 +5,7 @@
 # Description:
 #  
 #	This python program runs a command to determine how many processes
-#       (in this case, apache processes) are running.
+#   are running.
 #
 # History:
 #

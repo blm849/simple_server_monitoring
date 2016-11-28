@@ -30,18 +30,18 @@ description of how they work in a comment at the beginning of the code.
 Combined with the python scripts are some very simple shell scripts. For this repo, I have
 included two of these shell scripts: prod1.sh and prod1a.sh. 
 
-1.prod1.sh: this script runs all four python scripts and sends the output to an output 
+1.	prod1.sh: this script runs all four python scripts and sends the output to an output 
 file. You can see an example of such a file here (prod1mon.txt).
-2.prod1a.sh: this script takes the output of prod1.sh and calls a python script called
+2.	prod1a.sh: this script takes the output of prod1.sh and calls a python script called
 pushover.py.
 
 ## The reporting scripts
 In addition to the 4 python scripts below, there are some additional scripts.
-1.pushover.py: this script works with the Pushover service to send the output from prod1.sh
+1.	pushover.py: this script works with the Pushover service to send the output from prod1.sh
 to users of the Pushover app. You can find out more about Pushover here: https://pushover.net/
 Essentially I use the Pushover API to send the monitoring results from the Linux system
 to my mobile device that is running the Pushover app. 
-2.testpushover.py: this script is a way of testing that you have connectivity from the 
+2.	testpushover.py: this script is a way of testing that you have connectivity from the 
 Linux system to the Pushover service.
 
 To call these scripts, enter: python pushover.py or python testpushover.py
