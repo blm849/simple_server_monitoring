@@ -1,0 +1,4 @@
+No mount points exceed the threshold(80%)
+CPU idle is 100%, free memory is 351100, run queue size is 0, swapping in is 0
+Number of apache processes running is 5
+Ping test complete. Pinged 2 ip addresses.  No packet loss occurred.

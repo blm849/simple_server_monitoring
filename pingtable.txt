@@ -1,0 +1,6 @@
+# Change these IP addresses with the ones you need.
+# Note: anything after the IP address is ignored by pingtest.py
+
+10.1.2.3  	PROD2	# Usually a system your server needs to communicate with
+8.8.8.8 			# Tests outside connectivity. In this case, Google's DNS server.
+
