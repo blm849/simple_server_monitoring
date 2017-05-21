@@ -9,30 +9,53 @@
 # History:
 #
 #       2015.08.12	Initial implementation. (BLM)
+#		2017.05.21	Get the PushoverToken and UserID from an ini file
 #
 # Examples:
 #
-#       To call the program, enter: python pushover.py fileName sysName
+#       To call the program, enter: python pushover.py fileName sysName INIfile
 
 #
 #############################################################################
 
 # Initialization of variables, etc.
 import sys, subprocess, httplib, urllib
+import ConfigParser
 myMessage = ""
-myPushoverToken = "<your pushover token>"
-myPushoverUserID = "<your pushover ID>"
+myPushoverToken = ""
+myPushoverUserID = ""
 
 # Get the parameters
 
-if len(sys.argv) != 3:
-	print 'To run this program, enter ' + str(sys.argv[0]) + ' filename sysName'
+if len(sys.argv) != 4:
+	print 'To run this program, enter ' + str(sys.argv[0]) + ' filename sysName INIfile'
 	print 'Argument List:', str(sys.argv)
 	sys.exit(0)
 else:
 	inputFile = sys.argv[1]
 	myTitle = sys.argv[2]
+	myINIFile = sys.argv[3]
 	
+# Read the INI file
+# The format of ini file is like this (minus the #). Note, no quote around the string
+#[DEFAULT]
+#myPushOverToken = your Pushover token string
+#myPushoverUserID = your Pushover UserID string
+
+config = ConfigParser.ConfigParser()
+config.read(myINIFile)
+
+try:
+	myPushoverToken = config.get('DEFAULT', 'myPushoverToken')
+	myPushoverUserID =  config.get('DEFAULT', 'myPushoverUserID')
+except:
+	print "An error occurred getting myPushoverToken or myPushoverUserID"
+	
+# If there is a problem with the token or userid, then exist
+if (myPushoverToken == "") or (myPushoverUserID == ""):
+	print 'Check your INI file: ' + myINIFile
+	print 'Either myPushoverToken or myPushoverUserid is not properly assigned a value'
+	sys.exit(0)
 #print inputFile
 
 # Main body of the shell script.
