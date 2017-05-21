@@ -12,7 +12,7 @@
 #
 # Examples:
 #
-#       To call the program, enter: python pushover.py fileName sysName
+#       To call the program, enter: python testpushover.py fileName sysName
 #
 #############################################################################
 
